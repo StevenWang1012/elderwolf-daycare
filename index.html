@@ -89,6 +89,7 @@
       margin-top: 1.5rem;
       display: flex;
       gap: 1rem;
+      align-items: center;
     }
     .cta-button {
       background-color: #FFB74D;
@@ -100,6 +101,22 @@
       transition: background-color 0.3s ease;
     }
     .cta-button:hover {
+      background-color: #FFA000;
+    }
+    .cta-icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: #FFB74D;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+    .cta-icon-button:hover {
       background-color: #FFA000;
     }
     .photo-gallery {
@@ -122,7 +139,9 @@
       <p>溫馨、安心、有尊嚴的日間照顧</p>
       <div class="cta-buttons">
         <a href="#contact" class="cta-button">預約參觀</a>
-        <a href="tel:0412345678" class="cta-button"><i class="fas fa-phone"></i> 04-12345678</a>
+        <a href="tel:0412345678" class="cta-icon-button" title="立即來電">
+          <i class="fas fa-phone"></i>
+        </a>
       </div>
     </section>
 
