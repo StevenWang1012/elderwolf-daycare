@@ -6,31 +6,15 @@
   <title>秀老狼日照中心</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
+    /* 基础重置 */
+    * {
       margin: 0;
-      font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
-      background-color: #FFFDF8;
-      color: #3F3F3F;
-      line-height: 1.8;
-      padding-bottom: 70px;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    /* 启动动画 */
     #splash {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #FFFDF8;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 1rem;
-}
       position: fixed;
       top: 0;
       left: 0;
@@ -41,129 +25,111 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
+      flex-direction: row;
+      gap: 1.5rem;
     }
-    #splash img, #splash p {
-  font-size: 2rem;
-  font-weight: 900;
-  color: #4F704F;
-  animation: fadeInUp 1s ease-in-out 0.2s forwards;
-}
+    
     #splash img {
-  width: 120px;
-  animation: fadeInUp 1s ease-in-out 0.2s forwards;
-}
-    #splash p {
-      font-size: 1.2rem;
-      color: #4F704F;
-      animation: fadeIn 1s ease-in-out 1.2s forwards;
+      width: 120px;
+      height: 120px;
+      opacity: 0;
+      animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
+    
+    #splash p {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #4F704F;
+      margin: 0;
+      opacity: 0;
+      animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    }
+    
     @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-}
-    }
-    @keyframes fadeOutSplash {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.95);
-    visibility: hidden;
-  }
-}
-    }
+    
     .hide-splash {
-  animation: fadeOutSplash 0.8s ease-in-out forwards;
-}
+      animation: fadeOutSplash 0.6s cubic-bezier(0.6, 0, 0.8, 0.5) forwards;
+    }
+    
+    @keyframes fadeOutSplash {
+      to {
+        opacity: 0;
+        transform: scale(0.98);
+        visibility: hidden;
+      }
+    }
+
+    /* 进度条 */
+    #loading-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #4F704F, #AFC1A5);
+      z-index: 2001;
+      transition: width 0.4s ease;
+    }
+
+    /* 主体样式 */
+    body {
+      font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+      background-color: #FFFDF8;
+      color: #3F3F3F;
+      line-height: 1.8;
+      padding-bottom: 70px;
+    }
+
+    /* 导航栏 */
     .site-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 0.5rem 2rem;
+      background-color: rgba(255, 253, 248, 0.96);
+      padding: 0.8rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: 1001;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
-    .site-header .branding {
+    
+    .branding {
       display: flex;
       align-items: center;
+      gap: 0.8rem;
     }
-    .site-header img {
-  height: 40px;
-  margin-right: 0.8rem;
-  vertical-align: middle;
-}
-    .site-header h1 {
-  font-size: 1.25rem;
-  margin: 0;
-  color: #4F704F;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-}
-    .top-nav {
-      display: none;
+    
+    .branding img {
+      height: 42px;
     }
-    @media (min-width: 768px) {
-      .top-nav {
-        display: flex;
-        gap: 2rem;
-      }
-      .top-nav a {
-        text-decoration: none;
-        color: #4F704F;
-        font-weight: bold;
-        padding: 0.25rem 0;
-        position: relative;
-      }
-      .top-nav a::after {
-        content: '';
-        display: block;
-        width: 0%;
-        height: 2px;
-        background: #4F704F;
-        transition: width 0.3s;
-        position: absolute;
-        bottom: -3px;
-        left: 0;
-      }
-      .top-nav a:hover::after,
-      .top-nav a:focus::after {
-        width: 100%;
-      }
+    
+    .branding h1 {
+      font-size: 1.3rem;
+      color: #4F704F;
     }
-    @media (min-width: 768px) {
-      .bottom-nav {
-        display: none !important;
-      }
+
+    /* 主内容区 */
+    main {
+      padding-top: 80px;
     }
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 960px;
-      margin: auto;
-    }
+
+    /* 英雄区域 */
     #hero {
-      background-image: url('assets/images/heroes/daycare-hero.jpg');
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                  url('assets/images/heroes/daycare-hero.jpg') center/cover;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -171,173 +137,208 @@
       align-items: center;
       text-align: center;
       color: white;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-      padding-top: 80px;
+      padding: 0 1.5rem;
     }
+    
     #hero h2 {
       font-size: 2.8rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      animation: fadeInUp 0.8s 0.8s both;
     }
+    
     #hero p {
       font-size: 1.5rem;
-      margin-top: 0.2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      animation: fadeInUp 0.8s 1s both;
     }
+
+    /* 内容区块 */
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
     h2 {
       font-size: 2rem;
       color: #6B8E23;
       border-bottom: 2px solid #AFC1A5;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
       display: inline-block;
-      padding-bottom: 0.3rem;
     }
-    ul li {
-      margin-bottom: 0.5rem;
-    }
+
+    /* 底部导航 */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      background-color: #AFC1A5;
+      background: #4F704F;
       display: flex;
       justify-content: space-around;
-      align-items: center;
-      height: 72px;
+      padding: 0.8rem 0;
       z-index: 1000;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     }
+    
     .bottom-nav a {
       color: white;
       text-decoration: none;
-      font-size: 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    .bottom-nav a span {
-      font-size: 1.5rem;
-    }
-    footer {
-      background-color: #AFC1A5;
-      color: white;
-      text-align: center;
-      padding: 1rem;
       font-size: 0.9rem;
-      position: relative;
-      z-index: 1;
+      transition: transform 0.3s;
     }
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
+    
+    .bottom-nav a span {
+      font-size: 1.6rem;
+      margin-bottom: 0.3rem;
     }
-    .cta-button {
-      background-color: #FFB74D;
-      color: white;
-      padding: 0.7rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
+    
+    .bottom-nav a:hover {
+      transform: translateY(-5px);
     }
-    .cta-button:hover {
-      background-color: #FFA000;
-    }
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .photo-gallery img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    /* 响应式设计 */
+    @media (min-width: 768px) {
+      .bottom-nav {
+        display: none;
+      }
+      
+      .top-nav {
+        display: flex;
+        gap: 2rem;
+      }
+      
+      .top-nav a {
+        color: #4F704F;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+      }
+      
+      .top-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #4F704F;
+        transition: width 0.3s;
+      }
+      
+      .top-nav a:hover::after {
+        width: 100%;
+      }
     }
   </style>
-  <script>
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('splash').classList.add('hide-splash');
-        setTimeout(() => {
-          document.getElementById('splash').style.display = 'none';
-        }, 1000);
-      }, 2500);
-    });
-  </script>
 </head>
 <body>
-  <div id="splash" style="flex-direction: row; gap: 1rem;">
-  <img src="assets/images/xiulaolang-logo.png" alt="秀老狼 logo">
-  <p>秀老狼日照中心</p>
-</div>
+  <!-- 启动动画 -->
+  <div id="splash">
+    <img src="assets/images/xiulaolang-logo.png" alt="秀老狼 logo">
+    <p>秀老狼日照中心</p>
+  </div>
+  <div id="loading-bar"></div>
 
+  <!-- 主导航 -->
   <header class="site-header">
     <div class="branding">
       <img src="assets/images/xiulaolang-logo.png" alt="秀老狼 logo">
       <h1>秀老狼日照中心</h1>
     </div>
     <nav class="top-nav">
-      <a href="#about">關於</a>
-      <a href="#services">服務</a>
-      <a href="#environment">環境</a>
-      <a href="#contact">聯絡</a>
+      <a href="#about">關於我們</a>
+      <a href="#services">服務項目</a>
+      <a href="#environment">環境設施</a>
+      <a href="#contact">聯絡我們</a>
     </nav>
   </header>
 
   <main>
+    <!-- 首屏英雄区 -->
     <section id="hero">
       <h2>陪你一起變老的日子</h2>
-      <p>溫馨、安心、有尊嚴的日間照顧</p>
-      <div class="cta-buttons">
-        <a href="#contact" class="cta-button">預約參觀</a>
-      </div>
+      <p>專業、溫暖、有尊嚴的日間照顧</p>
+      <a href="#contact" class="cta-button">預約參觀</a>
     </section>
 
+    <!-- 关于我们 -->
     <section id="about">
       <h2>關於我們</h2>
-      <p>秀老狼是一間位於在地社區的日照中心，致力於提供安全舒適、溫暖關懷的長輩日間照顧服務，讓家屬更安心，讓長輩笑得更燦爛。</p>
+      <p>秀老狼日照中心位於台中市西區，我們提供專業的日間照顧服務，讓長輩在熟悉的社區環境中獲得妥善照顧，同時減輕家庭照顧者的負擔。</p>
     </section>
 
+    <!-- 服务项目 -->
     <section id="services">
       <h2>服務項目</h2>
       <ul>
-        <li>日間照顧與陪伴</li>
-        <li>健康促進與復健活動</li>
-        <li>營養均衡餐點供應</li>
-        <li>協助洗澡與身體照護</li>
+        <li>生活照顧與陪伴</li>
+        <li>健康促進活動</li>
+        <li>營養餐食服務</li>
+        <li>沐浴與身體清潔</li>
         <li>交通接送服務</li>
       </ul>
     </section>
 
+    <!-- 环境设施 -->
     <section id="environment">
-      <h2>中心環境</h2>
+      <h2>環境設施</h2>
       <div class="photo-gallery">
-        <img src="assets/images/env/sample1.jpg" alt="中心大廳">
-        <img src="assets/images/env/sample2.jpg" alt="活動區域">
-        <img src="assets/images/env/sample3.jpg" alt="餐飲空間">
+        <img src="assets/images/env/lobby.jpg" alt="寬敞明亮的交誼廳">
+        <img src="assets/images/env/dining.jpg" alt="舒適的用餐環境">
+        <img src="assets/images/env/activity.jpg" alt="多功能活動室">
       </div>
     </section>
 
+    <!-- 联络我们 -->
     <section id="contact">
       <h2>聯絡我們</h2>
       <p>
-        <i class="fas fa-map-marker-alt"></i> 台中市OO區OO路OO號<br>
-        <i class="fas fa-phone"></i> (04)1234-5678<br>
+        <i class="fas fa-map-marker-alt"></i> 台中市西區民生路123號<br>
+        <i class="fas fa-phone"></i> 04-12345678<br>
         <i class="fas fa-envelope"></i> info@xiulaolang.tw
       </p>
     </section>
   </main>
 
+  <!-- 底部导航 (移动端) -->
   <nav class="bottom-nav">
     <a href="#about"><span><i class="fas fa-home"></i></span>關於</a>
     <a href="#services"><span><i class="fas fa-hands-helping"></i></span>服務</a>
-    <a href="#environment"><span><i class="fas fa-tree"></i></span>環境</a>
+    <a href="#environment"><span><i class="fas fa-images"></i></span>環境</a>
     <a href="#contact"><span><i class="fas fa-phone-alt"></i></span>聯絡</a>
   </nav>
 
-  <footer>
-    <p>&copy; 2025 秀老狼日照中心. 保留所有權利。</p>
-  </footer>
+  <script>
+    // 加载进度条
+    window.addEventListener('load', function() {
+      // 进度条动画
+      document.getElementById('loading-bar').style.width = '100%';
+      
+      // 启动画面消失
+      setTimeout(function() {
+        document.getElementById('splash').classList.add('hide-splash');
+        setTimeout(function() {
+          document.getElementById('splash').remove();
+          document.getElementById('loading-bar').remove();
+        }, 600);
+      }, 2200);
+    });
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
