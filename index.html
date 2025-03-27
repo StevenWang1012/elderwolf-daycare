@@ -17,6 +17,65 @@
       line-height: 1.8;
       padding-bottom: 70px;
     }
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1001;
+    }
+    .site-header .branding {
+      display: flex;
+      align-items: center;
+    }
+    .site-header img {
+      height: 40px;
+      margin-right: 0.8rem;
+    }
+    .site-header h1 {
+      font-size: 1.25rem;
+      margin: 0;
+      color: #4F704F;
+    }
+    .top-nav {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .top-nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .top-nav a {
+        text-decoration: none;
+        color: #4F704F;
+        font-weight: bold;
+        padding: 0.25rem 0;
+        position: relative;
+      }
+      .top-nav a::after {
+        content: '';
+        display: block;
+        width: 0%;
+        height: 2px;
+        background: #4F704F;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+      }
+      .top-nav a:hover::after,
+      .top-nav a:focus::after {
+        width: 100%;
+      }
+      .bottom-nav {
+        display: none;
+      }
+    }
     section {
       padding: 3rem 1.5rem;
       max-width: 960px;
@@ -34,6 +93,7 @@
       text-align: center;
       color: white;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      padding-top: 80px;
     }
     #hero h2 {
       font-size: 2.8rem;
@@ -63,20 +123,20 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      height: 60px;
+      height: 72px;
       z-index: 1000;
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     }
     .bottom-nav a {
       color: white;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     .bottom-nav a span {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
     footer {
       background-color: #AFC1A5;
@@ -118,6 +178,19 @@
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="branding">
+      <img src="assets/images/xiulaolang-logo.png" alt="秀老狼 logo">
+      <h1>秀老狼日照中心</h1>
+    </div>
+    <nav class="top-nav">
+      <a href="#about">關於</a>
+      <a href="#services">服務</a>
+      <a href="#environment">環境</a>
+      <a href="#contact">聯絡</a>
+    </nav>
+  </header>
+
   <main>
     <section id="hero">
       <h2>陪你一起變老的日子</h2>
