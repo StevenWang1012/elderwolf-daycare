@@ -15,7 +15,7 @@
       background-color: #FFFDF8;
       color: #3F3F3F;
       line-height: 1.8;
-      padding-bottom: 70px; /* 為底部導覽列預留空間 */
+      padding-bottom: 70px;
     }
     section {
       padding: 3rem 1.5rem;
@@ -23,7 +23,9 @@
       margin: auto;
     }
     #hero {
-      background: url('assets/images/heroes/daycare-hero.jpg') center/cover no-repeat;
+      background-image: url('assets/images/heroes/daycare-hero.jpg');
+      background-size: cover;
+      background-position: center;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -83,6 +85,34 @@
       position: relative;
       z-index: 1;
     }
+    .cta-buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .cta-button {
+      background-color: #FFB74D;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #FFA000;
+    }
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .photo-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
@@ -90,6 +120,10 @@
     <section id="hero">
       <h2>陪你一起變老的日子</h2>
       <p>溫馨、安心、有尊嚴的日間照顧</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="cta-button">預約參觀</a>
+        <a href="tel:0412345678" class="cta-button"><i class="fas fa-phone"></i> 04-12345678</a>
+      </div>
     </section>
 
     <section id="about">
@@ -110,7 +144,11 @@
 
     <section id="environment">
       <h2>中心環境</h2>
-      <p>我們擁有寬敞明亮的活動空間、舒適休憩區與無障礙設施，讓長輩活動自在、安心休息。</p>
+      <div class="photo-gallery">
+        <img src="assets/images/env/sample1.jpg" alt="中心大廳">
+        <img src="assets/images/env/sample2.jpg" alt="活動區域">
+        <img src="assets/images/env/sample3.jpg" alt="餐飲空間">
+      </div>
     </section>
 
     <section id="contact">
