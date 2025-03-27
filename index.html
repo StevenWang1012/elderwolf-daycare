@@ -1,74 +1,137 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>秀老狼日照中心 - 陪您一起變老的日子</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>秀老狼日照中心</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+      background-color: #FFFDF8;
+      color: #3F3F3F;
+      line-height: 1.8;
+      padding-bottom: 70px; /* 為底部導覽列預留空間 */
+    }
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 960px;
+      margin: auto;
+    }
+    #hero {
+      background: url('assets/images/heroes/daycare-hero.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+    #hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    #hero p {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #6B8E23;
+      border-bottom: 2px solid #AFC1A5;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #AFC1A5;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      z-index: 1000;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .bottom-nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .bottom-nav a span {
+      font-size: 1.2rem;
+    }
+    footer {
+      background-color: #AFC1A5;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
-    <!-- 導航欄 -->
-    <nav>
-        <div class="container">
-            <a href="#home">首頁</a>
-            <a href="#services">服務項目</a>
-            <a href="#environment">環境設施</a>
-            <a href="#contact">聯絡我們</a>
-        </div>
-    </nav>
-
-    <!-- 首頁橫幅 -->
-    <header id="home">
-        <img src="assets/images/logo.png" alt="秀老狼logo" class="logo">
-        <h1>秀老狼日照中心</h1>
-        <p class="tagline">陪您一起變老的日子</p>
-        <div class="cta-buttons">
-            <a href="#contact" class="cta-button">預約參觀</a>
-            <a href="tel:04-12345678" class="cta-button">
-                <i class="fas fa-phone"></i> 04-12345678
-            </a>
-        </div>
-    </header>
-
-    <!-- 服務項目 -->
-    <section id="services" class="section">
-        <h2>我們的服務</h2>
-        <div class="service-grid">
-            <!-- 服務卡片會用JS動態載入 -->
-        </div>
+  <main>
+    <section id="hero">
+      <h2>陪你一起變老的日子</h2>
+      <p>溫馨、安心、有尊嚴的日間照顧</p>
     </section>
 
-    <!-- 環境照片 -->
-    <section id="environment" class="section">
-        <h2>溫馨環境</h2>
-        <div class="photo-gallery">
-            <!-- 圖片用JS載入 -->
-        </div>
+    <section id="about">
+      <h2>關於我們</h2>
+      <p>秀老狼是一間位於在地社區的日照中心，致力於提供安全舒適、溫暖關懷的長輩日間照顧服務，讓家屬更安心，讓長輩笑得更燦爛。</p>
     </section>
 
-    <!-- 聯絡區塊 -->
-    <section id="contact" class="section">
-        <h2>聯絡我們</h2>
-        <div class="contact-info">
-            <p><i class="fas fa-map-marker-alt"></i> 台中市西區民生路123號</p>
-            <p><i class="fas fa-phone"></i> 04-12345678</p>
-            <p><i class="fas fa-clock"></i> 週一至週五 8:00-18:00</p>
-        </div>
-        <div class="map" id="map"></div>
+    <section id="services">
+      <h2>服務項目</h2>
+      <ul>
+        <li>日間照顧與陪伴</li>
+        <li>健康促進與復健活動</li>
+        <li>營養均衡餐點供應</li>
+        <li>協助洗澡與身體照護</li>
+        <li>交通接送服務</li>
+      </ul>
     </section>
 
-    <!-- 頁尾 -->
-    <footer>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-line"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-        <p>© <span id="current-year"></span> 秀老狼日照中心 版權所有</p>
-    </footer>
+    <section id="environment">
+      <h2>中心環境</h2>
+      <p>我們擁有寬敞明亮的活動空間、舒適休憩區與無障礙設施，讓長輩活動自在、安心休息。</p>
+    </section>
 
-    <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <section id="contact">
+      <h2>聯絡我們</h2>
+      <p>
+        <i class="fas fa-map-marker-alt"></i> 台中市OO區OO路OO號<br>
+        <i class="fas fa-phone"></i> (04)1234-5678<br>
+        <i class="fas fa-envelope"></i> info@xiulaolang.tw
+      </p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="#about"><span><i class="fas fa-home"></i></span>關於</a>
+    <a href="#services"><span><i class="fas fa-hands-helping"></i></span>服務</a>
+    <a href="#environment"><span><i class="fas fa-tree"></i></span>環境</a>
+    <a href="#contact"><span><i class="fas fa-phone-alt"></i></span>聯絡</a>
+  </nav>
+
+  <footer>
+    <p>&copy; 2025 秀老狼日照中心. 保留所有權利。</p>
+  </footer>
 </body>
 </html>
