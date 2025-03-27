@@ -17,6 +17,72 @@
       line-height: 1.8;
       padding-bottom: 70px;
     }
+    #splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFFDF8;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #FFFDF8;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #splash img, #splash p {
+  font-size: 1.4rem;
+  color: #4F704F;
+  animation: fadeInUp 1s ease-in-out 1s forwards;
+}
+    #splash img {
+  width: 120px;
+  animation: fadeInUp 1s ease-in-out 0.2s forwards;
+}
+    #splash p {
+      font-size: 1.2rem;
+      color: #4F704F;
+      animation: fadeIn 1s ease-in-out 1.2s forwards;
+    }
+    @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+}
+    }
+    @keyframes fadeOutSplash {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    .hide-splash {
+      animation: fadeOutSplash 1s ease-in-out forwards;
+    }
     .site-header {
       position: fixed;
       top: 0;
@@ -178,8 +244,23 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
   </style>
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('splash').classList.add('hide-splash');
+        setTimeout(() => {
+          document.getElementById('splash').style.display = 'none';
+        }, 1000);
+      }, 2500);
+    });
+  </script>
 </head>
 <body>
+  <div id="splash" style="flex-direction: row; gap: 1rem;">
+  <img src="assets/images/xiulaolang-logo.png" alt="秀老狼 logo">
+  <p>秀老狼日照中心</p>
+</div>
+
   <header class="site-header">
     <div class="branding">
       <img src="assets/images/xiulaolang-logo.png" alt="秀老狼 logo">
