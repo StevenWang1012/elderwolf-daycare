@@ -100,6 +100,7 @@
       border-bottom: 2px solid #AFC1A5;
       padding-bottom: 0.5rem;
       margin-bottom: 1.5rem;
+      display: inline-block;
     }
 
     /* === 首屏区块 === */
@@ -128,25 +129,60 @@
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
     }
 
-    /* === 预约按钮 === */
+    /* === 香槟金预约按钮 (含进阶效果) === */
     .cta-button {
-      display: inline-block;
-      background: #4F704F;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #F5D7A1, #D4A373);
+      color: #5E4B2E;
+      padding: 14px 28px;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: bold;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 
+        0 4px 20px rgba(212, 163, 115, 0.5),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-button::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0) 60%
+      );
+      transform: rotate(30deg);
+      transition: all 0.6s ease;
     }
     .cta-button:hover {
-      background: #3A5A40;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 
+        0 8px 25px rgba(212, 163, 115, 0.7),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4);
+      color: #4A3A22;
+    }
+    .cta-button:hover::before {
+      left: 100%;
     }
     .cta-button:active {
-      transform: translateY(1px);
+      transform: translateY(2px) scale(0.98);
+    }
+    .cta-button i {
+      font-size: 1.2em;
+      transition: transform 0.3s ease;
+    }
+    .cta-button:hover i {
+      transform: translateX(3px);
     }
 
     /* === 底部导航 === */
@@ -229,11 +265,13 @@
   </header>
 
   <main>
-    <!-- 首屏 -->
+    <!-- 首屏英雄区 -->
     <section id="hero">
       <h2>陪你一起變老的日子</h2>
       <p>專業、溫暖、有尊嚴的日間照顧</p>
-      <a href="#contact" class="cta-button">預約參觀</a>
+      <a href="#contact" class="cta-button">
+        <i class="fas fa-calendar-alt"></i> 預約參觀
+      </a>
     </section>
 
     <!-- 关于我们 -->
@@ -258,9 +296,9 @@
     <section id="environment">
       <h2>環境設施</h2>
       <div class="photo-gallery">
-        <img src="assets/images/env/lobby.jpg" alt="交誼廳">
-        <img src="assets/images/env/dining.jpg" alt="用餐區">
-        <img src="assets/images/env/activity.jpg" alt="活動室">
+        <img src="assets/images/env/lobby.jpg" alt="寬敞明亮的交誼廳">
+        <img src="assets/images/env/dining.jpg" alt="舒適的用餐環境">
+        <img src="assets/images/env/activity.jpg" alt="多功能活動室">
       </div>
     </section>
 
@@ -275,7 +313,7 @@
     </section>
   </main>
 
-  <!-- 底部导航 (手機版) -->
+  <!-- 底部导航 (移动端) -->
   <nav class="bottom-nav">
     <a href="#about"><span><i class="fas fa-home"></i></span>關於</a>
     <a href="#services"><span><i class="fas fa-hands-helping"></i></span>服務</a>
@@ -284,7 +322,7 @@
   </nav>
 
   <script>
-    // 啟動畫面控制
+    // 启动画面控制
     window.addEventListener('load', function() {
       setTimeout(function() {
         document.getElementById('splash').classList.add('hide-splash');
@@ -294,7 +332,7 @@
       }, 2500);
     });
 
-    // 平滑滾動
+    // 平滑滚动
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
