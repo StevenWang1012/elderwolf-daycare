@@ -4,143 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>秀老狼日照中心 - 陪您一起變老的日子</title>
-    <style>
-        /* 基礎重置 & 無障礙設計 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Microsoft JhengHei', Arial, sans-serif;
-        }
-        :root {
-            --primary: #4a7c59;  /* 主色-溫馨綠 */
-            --secondary: #e07a5f; /* 輔色-活力橘 */
-            --light: #f4f1de;
-            --dark: #3d405b;
-        }
-        html {
-            font-size: 18px;
-            scroll-behavior: smooth;
-        }
-        body {
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: #f9f9f9;
-        }
-        
-        /* 無障礙焦點樣式 */
-        :focus {
-            outline: 3px solid var(--secondary);
-            outline-offset: 2px;
-        }
-
-        /* 頁首樣式 */
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('assets/images/heroes/daycare-hero.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .logo {
-            width: 120px;
-            margin: 0 auto 1rem;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s, background 0.3s;
-            margin: 0 0.5rem 1rem;
-        }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            background-color: #d1664a;
-        }
-
-        /* 主要服務區塊 */
-        .services {
-            padding: 4rem 1rem;
-            background-color: white;
-        }
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .service-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 2rem;
-            transition: box-shadow 0.3s;
-        }
-        .service-card:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* 響應式設計 */
-        @media (max-width: 768px) {
-            html { font-size: 16px; }
-            h1 { font-size: 2rem; }
-            .tagline { font-size: 1.2rem; }
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* 大字模式（長者友善） */
-        .large-text-mode {
-            font-size: 20px;
-        }
-        .text-size-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-    </style>
-    <!-- Font Awesome 圖標庫 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- 大字模式切換按鈕 -->
-    <button id="textSizeToggle" class="text-size-toggle" aria-label="切換大字模式">
-        <i class="fas fa-text-height"></i>
-    </button>
-
-    <!-- 主導航 -->
-    <nav aria-label="主要導航">
+    <!-- 導航欄 -->
+    <nav>
         <div class="container">
             <a href="#home">首頁</a>
             <a href="#services">服務項目</a>
@@ -149,12 +18,12 @@
         </div>
     </nav>
 
-    <!-- 首頁主視覺 -->
+    <!-- 首頁橫幅 -->
     <header id="home">
-        <img src="assets/images/logo.png" alt="秀老狼日照中心logo" class="logo">
+        <img src="assets/images/logo.png" alt="秀老狼logo" class="logo">
         <h1>秀老狼日照中心</h1>
         <p class="tagline">陪您一起變老的日子</p>
-        <div>
+        <div class="cta-buttons">
             <a href="#contact" class="cta-button">預約參觀</a>
             <a href="tel:04-12345678" class="cta-button">
                 <i class="fas fa-phone"></i> 04-12345678
@@ -163,43 +32,23 @@
     </header>
 
     <!-- 服務項目 -->
-    <section class="services" id="services">
+    <section id="services" class="section">
         <h2>我們的服務</h2>
         <div class="service-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-                <h3>日間照顧</h3>
-                <p>專業護理人員全日陪伴，提供生活照料、健康監測與服藥提醒服務。</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-heartbeat"></i>
-                </div>
-                <h3>健康促進</h3>
-                <p>量身訂做的運動課程、認知訓練與社交活動，延緩老化維持機能。</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <h3>營養餐食</h3>
-                <p>專業營養師設計菜單，提供適合長者的軟質、切碎或流質飲食。</p>
-            </div>
+            <!-- 服務卡片會用JS動態載入 -->
         </div>
     </section>
 
-    <!-- 環境展示 -->
-    <section class="environment" id="environment">
+    <!-- 環境照片 -->
+    <section id="environment" class="section">
         <h2>溫馨環境</h2>
         <div class="photo-gallery">
-            <!-- 圖片將透過JS動態載入 -->
+            <!-- 圖片用JS載入 -->
         </div>
     </section>
 
-    <!-- 聯絡我們 -->
-    <section class="contact" id="contact">
+    <!-- 聯絡區塊 -->
+    <section id="contact" class="section">
         <h2>聯絡我們</h2>
         <div class="contact-info">
             <p><i class="fas fa-map-marker-alt"></i> 台中市西區民生路123號</p>
@@ -212,55 +61,14 @@
     <!-- 頁尾 -->
     <footer>
         <div class="social-links">
-            <a href="#"><i class="fab fa-line"></i> LINE官方帳號</a>
-            <a href="#"><i class="fab fa-facebook"></i> 粉絲專頁</a>
+            <a href="#"><i class="fab fa-line"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
-        <p>© 2023 秀老狼日照中心 版權所有</p>
+        <p>© <span id="current-year"></span> 秀老狼日照中心 版權所有</p>
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        // 大字模式切換
-        document.getElementById('textSizeToggle').addEventListener('click', function() {
-            document.body.classList.toggle('large-text-mode');
-            localStorage.setItem('largeTextMode', document.body.classList.contains('large-text-mode'));
-        });
-
-        // 檢查儲存的字體設定
-        if (localStorage.getItem('largeTextMode') === 'true') {
-            document.body.classList.add('large-text-mode');
-        }
-
-        // 動態載入環境照片
-        const photos = [
-            'assets/images/env/lobby.jpg',
-            'assets/images/env/dining-area.jpg',
-            'assets/images/env/activity-room.jpg'
-        ];
-        const gallery = document.querySelector('.photo-gallery');
-        photos.forEach(photo => {
-            const img = document.createElement('img');
-            img.src = photo;
-            img.alt = "日照中心環境照片";
-            img.loading = "lazy"; // 延遲載入
-            gallery.appendChild(img);
-        });
-
-        // Google 地圖嵌入
-        function initMap() {
-            const location = { lat: 24.150186, lng: 120.662632 }; // 台中市西區座標
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 15,
-                center: location,
-            });
-            new google.maps.Marker({
-                position: location,
-                map: map,
-                title: "秀老狼日照中心",
-            });
-        }
-    </script>
-    <!-- Google Maps API (需替換成您的API金鑰) -->
+    <script src="assets/js/main.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </body>
 </html>
