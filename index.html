@@ -114,32 +114,31 @@
 
     /* === 首屏区块 === */
     #hero {
-      background: linear-gradient(rgba(255,253,248,0.3), /* 淺色遮罩 */
-                  url('assets/images/heroes/daycare-hero.jpg') center/cover;
+      background: 
+        linear-gradient(rgba(255,253,248,0.3), rgba(255,253,248,0.3)), /* 淺色遮罩 */
+        url('assets/images/heroes/daycare-hero.jpg') center/cover;
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: white;
+      color: #4F704F; /* 改为深色文字更显眼 */
       padding: 0 1.5rem;
       line-height: 1.4; /* 覆蓋全域行高 */
     }
     #hero h2 {
       font-size: 2.8rem;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 4px rgba(255,255,255,0.8); /* 白色阴影 */
       margin-bottom: 0.5rem;  /* 補充間距設定 */
       letter-spacing: 1px;    /* 新增字距 */
       animation: fadeInUp 1s ease-out; /* 新增动画 */
     }
     #hero p {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 300;  
       margin-bottom: 2rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-      font-size: 1.3rem;      /* 覆蓋預設大小 */
-      font-weight: 300;       /* 新增字重 */
-      margin-bottom: 2rem;    /* 明確設定間距 */
+      text-shadow: 0 2px 4px rgba(255,255,255,0.8);
       animation: fadeInUp 1s ease-out 0.3s forwards; /* 新增动画 */
       opacity: 0; /* 初始隐藏 */
     }
@@ -231,7 +230,10 @@
 
     /* === 响应式设计 === */
     @media (min-width: 768px) {
-      .bottom-nav { display: none; }
+      /* 桌面端样式 */
+      .bottom-nav { 
+        display: none; 
+      }
       .top-nav {
         display: flex;
         gap: 2rem;
@@ -254,6 +256,18 @@
       }
       .top-nav a:hover::after {
         width: 100%;
+      }
+    }
+    @media (max-width: 767px) {
+      /* 移动端样式 */
+      #hero h2 {
+        font-size: 2rem;  /* 标题缩小 */
+      }
+      #hero p {
+        font-size: 1.1rem;  /* 正文缩小 */
+      }
+      .photo-gallery {
+        grid-template-columns: 1fr;  /* 图片单列布局 */
       }
     }
   </style>
