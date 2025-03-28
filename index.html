@@ -300,14 +300,16 @@
         left: 20px;
         background: rgba(255, 253, 248, 0.6); /* 米白半透明背景 */
         color: #2C4A2C; /* 深绿文字 */
-        padding: 12px 16px;
+        padding: 15px 20px;
         border-radius: 8px;
-        font-size: 1rem;
+        font-size: 1.2rem;
         max-width: 80%; /* 避免文字过长 */
         z-index: 10;
         /* 增强可读性 */
-        text-shadow: 0 1px 2px rgba(255,253,248,0.5);
+        text-shadow: 0 1px 2px rgba(255,253,248,0.8);
+        font-weight: 600;
         backdrop-filter: blur(2px); /* 可选：背景微模糊效果 */
+        border: 1px solid rgba(44, 74, 44, 0.2);
       }
     }
     @media (max-width: 767px) {
@@ -342,10 +344,10 @@
         transform: scale(1.02);
       }
       .caption-test::after {
-        font-size: 0.9rem;
+        font-size: 1rem;
         bottom: 10px;
         left: 10px;
-        padding: 8px 12px;
+        padding: 12px 25px;
       }
     }
   </style>
