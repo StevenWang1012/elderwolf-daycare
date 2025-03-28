@@ -47,6 +47,26 @@
       opacity: 0;
       animation: fadeInUp 0.8s ease-out 0.6s forwards;
     }
+    /* === 移动端专属调整（新增部分） === */
+    @media (max-width: 767px) {
+      #splash {
+        flex-direction: column;  /* 垂直排列 */
+        gap: 1rem;              /* 缩小间距 */
+        padding: 0 20px;        /* 防止贴边 */
+        animation: fadeInUp 0.6s ease-out 0.2s forwards; /* 加快动画 */
+        min-height: -webkit-fill-available; /* 解决iOS底部栏问题 */
+        }
+      #splash img {
+        width: 80px;           /* 缩小LOGO */
+        height: 80px;
+        margin-bottom: 10px;   /* 图文间距 */
+      }
+      #splash p {
+        font-size: 1.5rem;     /* 调小文字 */
+        white-space: nowrap;   /* 防止换行 */
+        animation: fadeInUp 0.6s ease-out 0.4s forwards;
+      }
+    }
     @keyframes fadeInUp {
       from { 
         opacity: 0; 
