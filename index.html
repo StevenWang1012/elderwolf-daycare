@@ -293,9 +293,10 @@
       }
       .caption-test {
         position: relative; /* 关键：建立定位上下文 */
+        margin-bottom: 1rem; /* 增加图片间距 */
       }
       .caption-test::after {
-        content: "交誼廳｜防撞圓角設計・自然採光充足"; /* 您的文案 */
+        content: attr(data-caption); /* 改为从HTML属性读取文案 */
         position: absolute;
         bottom: 20px;
         left: 20px;
@@ -405,11 +406,17 @@
     <!-- 环境设施 -->
     <section id="environment">
       <h2>環境設施</h2>
-      <div class="photo-item caption-test"> <!-- 新增 caption-test 类 -->
-        <img src="assets/images/env/lobby.jpg" alt="寬敞明亮的交誼廳">
-        <img src="assets/images/env/dining.jpg" alt="舒適的用餐環境">
-        <img src="assets/images/env/activity.jpg" alt="多功能活動室">
-      </div>
+      <div class="photo-gallery">
+        <div class="photo-item caption-test" data-caption="交誼廳｜防撞圓角設計・自然採光">
+          <img src="lobby.jpg" alt="交誼廳">
+        </div>
+        <div class="photo-item caption-test" data-caption="餐廳｜五星主廚監製・個人化餐食">
+          <img src="dining.jpg" alt="餐廳">
+        </div>
+        <div class="photo-item caption-test" data-caption="活動室｜每週5+種適能課程">
+          <img src="activity.jpg" alt="活動室">
+        </div>
+  </div>
     </section>
 
     <!-- 联络我们 -->
