@@ -115,7 +115,7 @@
     /* === 首屏区块 === */
     #hero {
       background: 
-        linear-gradient(rgba(255,253,248,0.3), rgba(255,253,248,0.3)), /* 淺色遮罩 */
+        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), /* 黑色半透明遮罩 */
         url('assets/images/heroes/daycare-hero.jpg') center/cover;
       height: 100vh;
       display: flex;
@@ -123,13 +123,13 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #4F704F; /* 改为深色文字更显眼 */
+      color: white;
       padding: 0 1.5rem;
       line-height: 1.4; /* 覆蓋全域行高 */
     }
     #hero h2 {
       font-size: 2.8rem;
-      text-shadow: 0 2px 4px rgba(255,255,255,0.8); /* 白色阴影 */
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
       margin-bottom: 0.5rem;  /* 補充間距設定 */
       letter-spacing: 1px;    /* 新增字距 */
       animation: fadeInUp 1s ease-out; /* 新增动画 */
@@ -148,7 +148,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: linear-gradient(135deg, #F5D7A1, #D4A373);
+      background: linear-gradient(135deg, #6B8E23, #4F704F); /* 按钮改为绿色系 */
       color: #5E4B2E;
       padding: 14px 28px;
       border-radius: 50px;
