@@ -332,8 +332,20 @@
       .photo-gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1rem;
-        margin-top: 2rem;
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+      .photo-item {
+        position: relative; /* 关键：建立定位上下文 */
+        border-radius: 8px;
+        overflow: hidden; /* 防止图片圆角失效 */
+        aspect-ratio: 4/3; /* 固定图片比例 */
+      }
+      .photo-item img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 保持比例填充 */
+        transition: transform 0.3s;
       }
       .photo-gallery img {
         width: 100%;
@@ -407,14 +419,17 @@
     <section id="environment">
       <h2>環境設施</h2>
       <div class="photo-gallery">
-        <div class="photo-item caption-test" data-caption="交誼廳｜防撞圓角設計・自然採光">
-          <img src="lobby.jpg" alt="交誼廳">
+        <div class="photo-item"> 
+          <img src="assets/images/env/lobby.jpg" alt="交誼廳">
+          <div class="image-caption">交誼廳｜防撞圓角設計・自然採光</div>
         </div>
-        <div class="photo-item caption-test" data-caption="餐廳｜五星主廚監製・個人化餐食">
-          <img src="dining.jpg" alt="餐廳">
+        <div class="photo-item">
+          <img src="assets/images/env/dining.jpg" alt="餐廳">
+          <div class="image-caption">餐廳｜五星主廚監製・個人化餐食</div>
         </div>
-        <div class="photo-item caption-test" data-caption="活動室｜每週5+種適能課程">
-          <img src="activity.jpg" alt="活動室">
+        <div class="photo-item">
+          <img src="assets/images/env/activity.jpg" alt="活動室">
+          <div class="image-caption">活動室｜每週5+種適能課程</div>
         </div>
   </div>
     </section>
