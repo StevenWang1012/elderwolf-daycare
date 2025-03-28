@@ -290,6 +290,25 @@
       .top-nav a:hover::after {
         width: 100%;
       }
+      .caption-test {
+        position: relative; /* 关键：建立定位上下文 */
+      }
+      .caption-test::after {
+        content: "交誼廳｜防撞圓角設計・自然採光充足"; /* 您的文案 */
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(255, 253, 248, 0.6); /* 米白半透明背景 */
+        color: #2C4A2C; /* 深绿文字 */
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 1rem;
+        max-width: 80%; /* 避免文字过长 */
+        z-index: 10;
+        /* 增强可读性 */
+        text-shadow: 0 1px 2px rgba(255,253,248,0.5);
+        backdrop-filter: blur(2px); /* 可选：背景微模糊效果 */
+      }
     }
     @media (max-width: 767px) {
       /* 移动端样式 */
@@ -321,6 +340,12 @@
       }
       .photo-gallery img:hover {
         transform: scale(1.02);
+      }
+      .caption-test::after {
+        font-size: 0.9rem;
+        bottom: 10px;
+        left: 10px;
+        padding: 8px 12px;
       }
     }
   </style>
@@ -377,7 +402,7 @@
     <!-- 环境设施 -->
     <section id="environment">
       <h2>環境設施</h2>
-      <div class="photo-gallery">
+      <div class="photo-item caption-test"> <!-- 新增 caption-test 类 -->
         <img src="assets/images/env/lobby.jpg" alt="寬敞明亮的交誼廳">
         <img src="assets/images/env/dining.jpg" alt="舒適的用餐環境">
         <img src="assets/images/env/activity.jpg" alt="多功能活動室">
