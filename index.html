@@ -292,6 +292,13 @@
     }
     @media (max-width: 767px) {
       /* 移动端样式 */
+      /* 必须添加的导航控制 */
+      .top-nav {
+        display: none !important; /* 强制隐藏桌面导航 */
+        }
+      .bottom-nav {
+        display: flex !important; /* 强制显示底部导航 */
+        }
       #hero h2 {
         font-size: 1.8rem;  /* 标题缩小 */
       }
