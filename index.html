@@ -53,18 +53,18 @@
         flex-direction: column;  /* 垂直排列 */
         gap: 1rem;              /* 缩小间距 */
         padding: 0 20px;        /* 防止贴边 */
-        animation: fadeInUp 0.6s ease-out 0.2s forwards; /* 加快动画 */
         min-height: -webkit-fill-available; /* 解决iOS底部栏问题 */
         }
       #splash img {
         width: 80px;           /* 缩小LOGO */
         height: 80px;
         margin-bottom: 10px;   /* 图文间距 */
+        animation: fadeInUp 0.6s ease-out 0.3s forwards !important;
       }
       #splash p {
         font-size: 1.5rem;     /* 调小文字 */
         white-space: nowrap;   /* 防止换行 */
-        animation: fadeInUp 0.6s ease-out 0.4s forwards;
+        animation: fadeInUp 0.6s ease-out 0.6s forwards !important;
       }
     }
     /* 超小屏手机优化 (400px以下) */
@@ -189,8 +189,8 @@
       font-size: 1.1rem;
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       box-shadow: 
-        0 4px 20px rgba(107, 142, 35, 0.5); /* 阴影色同步调整 */
-        inset 0 2px 4px rgba(255, 255, 255, 0.3);
+        0 4px 20px rgba(107, 142, 35, 0.5),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3); /* 添加逗号分隔 */
       border: 2px solid rgba(255, 255, 255, 0.2);
       position: relative;
       overflow: hidden;
@@ -293,13 +293,26 @@
     @media (max-width: 767px) {
       /* 移动端样式 */
       #hero h2 {
-        font-size: 2rem;  /* 标题缩小 */
+        font-size: 1.8rem;  /* 标题缩小 */
       }
       #hero p {
-        font-size: 1.1rem;  /* 正文缩小 */
+        font-size: 1rem;  /* 正文缩小 */
       }
       .photo-gallery {
-        grid-template-columns: 1fr;  /* 图片单列布局 */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .photo-gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+      }
+      .photo-gallery img:hover {
+        transform: scale(1.02);
       }
     }
   </style>
