@@ -291,6 +291,12 @@
       .top-nav a:hover::after {
         width: 100%;
       }
+      .photo-item::after {
+        font-size: 1.1rem;
+        padding: 12px 16px;
+        bottom: 20px;
+        left: 20px;
+      }
       .caption-test {
         position: relative; /* 关键：建立定位上下文 */
         margin-bottom: 1rem; /* 增加图片间距 */
@@ -340,6 +346,23 @@
         border-radius: 8px;
         overflow: hidden; /* 防止图片圆角失效 */
         aspect-ratio: 4/3; /* 固定图片比例 */
+      }
+      /* 新增图片文字覆盖样式 */
+      .photo-item::after {
+        content: attr(data-caption); /* 从data-caption属性读取文字 */
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        background: rgba(255, 253, 248, 0.85); /* 米白半透明背景 */
+        color: #4F704F; /* 绿色文字 */
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        max-width: 80%;
+        font-weight: 500;
+        backdrop-filter: blur(2px); /* 背景微模糊 */
+        border: 1px solid rgba(79, 112, 79, 0.2); /* 绿色细边框 */
+        z-index: 2; /* 确保文字在图片上方 *
       }
       .photo-item img{
         width: 100%;
@@ -419,17 +442,14 @@
     <section id="environment">
       <h2>環境設施</h2>
       <div class="photo-gallery">
-        <div class="photo-item"> 
+        <div class="photo-item caption-test" data-caption="交誼廳｜防撞圓角設計・自然採光">
           <img src="assets/images/env/lobby.jpg" alt="交誼廳">
-          <div class="image-caption">交誼廳｜防撞圓角設計・自然採光</div>
         </div>
-        <div class="photo-item">
+        <div class="photo-item caption-test" data-caption="餐廳｜五星主廚監製・個人化餐食">
           <img src="assets/images/env/dining.jpg" alt="餐廳">
-          <div class="image-caption">餐廳｜五星主廚監製・個人化餐食</div>
         </div>
-        <div class="photo-item">
+        <div class="photo-item caption-test" data-caption="活動室｜每週5+種適能課程">
           <img src="assets/images/env/activity.jpg" alt="活動室">
-          <div class="image-caption">活動室｜每週5+種適能課程</div>
         </div>
   </div>
     </section>
